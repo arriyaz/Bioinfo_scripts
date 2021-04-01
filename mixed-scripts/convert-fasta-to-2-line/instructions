@@ -1,0 +1,3 @@
+To run the convertfasta.py script, run the code by following way:
+
+python convertfasta.py -i "/path/to/inputfolder/" -o "/path/to/outputfolder/" -f "file1.fasta,file2.fasta,file3.fasta"
