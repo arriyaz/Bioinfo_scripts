@@ -29,10 +29,3 @@ Job Done!!!'
 echo 'Please find your files inside "fasta_files" directory under the current directory.
 
 '
-
-
-
-
-
-
-
