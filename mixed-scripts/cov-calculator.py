@@ -2,6 +2,8 @@
 
 # Thank you Preonath Shuvo.
 
+# Synopsis: python cov-calculator.py
+
 #Ask for input
 
 readsnumber = int(input('Please insert the number of reads (in bp): '))
