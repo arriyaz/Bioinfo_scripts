@@ -1,0 +1,8 @@
+# These two files need to be added with your bash profile so the terminal behave more consistently.
+# Run the follwing codes:
+
+cat bash_profile.txt >> ~/.bash_profile
+cat bashrc.txt >> ~/.bashrc
+source ~/.bash_profile
+
+# That's it.
