@@ -2,16 +2,12 @@
 
 #!/bin/bash
 
-
-#Synopsis: bash multiple_fasta_combined.sh
-
+# Synopsis: bash multiple_fasta_combined.sh
 
 set -ue
 
 
 #input source
-
-
 
 read -p 'Please enter the file name of accession id list: ' ids
 
