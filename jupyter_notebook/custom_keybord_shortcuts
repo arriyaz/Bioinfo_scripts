@@ -1,0 +1,47 @@
+{
+    "shortcuts": [
+        // shortcut key to hide cell output
+        {
+            "command": "notebook:hide-cell-outputs",
+            "keys": ["Ctrl H"],
+            "selector": "body"
+        },
+        // shortcut to view a cell output
+        {
+            "command": "notebook:show-cell-outputs",
+            "keys": ["Alt O"],
+            "selector": "body"
+        },
+        // shortcut to enter " <- " sign
+        {
+            "command": "apputils:run-first-enabled",
+            "keys": ["Alt ,"],
+            "args": {
+                "commands": [
+                    "console:replace-selection",
+                    "fileeditor:replace-selection",
+                    "notebook:replace-selection",
+                ],
+                "args": {"text": " <- "}
+            },
+            "selector": "body",
+        },
+        // shortcut to enter " = " 
+        {
+            "command": "apputils:run-first-enabled",
+            "keys": ["Alt ="],
+            "args": {
+                "commands": [
+                    "console:replace-selection",
+                    "fileeditor:replace-selection",
+                    "notebook:replace-selection",
+                ],
+                "args": {"text": " = "}
+            },
+            "selector": "body",
+        }
+
+            
+        
+    ]
+}
