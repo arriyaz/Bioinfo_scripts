@@ -1,2 +1,4 @@
 ## Resize image for high resolution
-`options(repr.plot.width=4, repr.plot.height=3, repr.plot.res = 300)`
+```shell
+options(repr.plot.width=4, repr.plot.height=3, repr.plot.res = 300)
+```
