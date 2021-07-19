@@ -26,3 +26,18 @@ To install **english** language package, run the  following command. For other l
 ```shell
 sudo apt-get install -y texlive-lang-english
 ```
+
+## Install Okular
+
+**Step 1**
+
+Run update command to update package repositories and get latest package information.
+```shell
+sudo apt-get update -y
+```
+**Step 2**
+
+Run the install command with -y flag to quickly install the packages and dependencies.
+```shell
+sudo apt-get install -y okular
+```
