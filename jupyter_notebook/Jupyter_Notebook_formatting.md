@@ -59,6 +59,10 @@ External links
 
 [Jupyter Notebook formatting](https://medium.com/ibm-data-science-experience/markdown-for-jupyter-notebooks-cheatsheet-386c05aeebed)
 
+```bash
+[Jupyter Notebook formatting](https://medium.com/ibm-data-science-experience/markdown-for-jupyter-notebooks-cheatsheet-386c05aeebed)
+```
+
 Images inline
 ![image](https://imgbbb.com/images/2019/12/18/Screenshot-2019-12-18-at-12.55.36-PM.png)
 
