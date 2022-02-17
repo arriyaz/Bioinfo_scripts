@@ -8,7 +8,7 @@ do
 done < wt_ids.txt
 ```
 -----------
-## To make the texts editable in svg file from svglit() R function
+## To make the texts editable in svg file from svglite() R function
 First run the follwoing code on the desired svg file, then open the file in **Inkscape**. Then you will find the all text can be edited.
 
 ```bash
