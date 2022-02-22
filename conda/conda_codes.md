@@ -21,6 +21,8 @@
 ## Clone an environment
 `conda create --name newCloneEnvName --clone envname`
 
+## Adding a channel and moving to top of the priority list
+`conda config --add channels biobakery`
 
 
 # Viewing a list of the packages in an environment
