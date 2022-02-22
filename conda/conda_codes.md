@@ -18,7 +18,7 @@
 `conda evn list`
 
 
-# Clone an environment
+## Clone an environment
 `conda create --name newCloneEnvName --clone envname`
 
 
