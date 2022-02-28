@@ -44,4 +44,16 @@ tr ',' ':' < filename
 
 ---------
 
+## Remove file extention from the user input in bash script.
+
+```bash
+read -e -p 'Please provide the name of your bash script: ' name 
+
+newname=$(echo $name | sed 's/.sh//g')
+```
+**Code Explanations:** Here I took input of a bash script, which includes the `.sh` extension in its name. But for further purposes we may need to remove the `.sh` part from the name. In the code above I remove this part with `sed` command and stored the name in another variable.
+
+
+
+
 

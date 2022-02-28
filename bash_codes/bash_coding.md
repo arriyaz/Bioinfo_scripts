@@ -141,9 +141,65 @@ echo "$status"
 	- The command followed by double ampercend (&&) will work only if the previous command execute successfully
 - || = OR
 	- e.g.; `cp test.txt /tmp/bak/ || test.txt /tmp `
+	- In this case the command after double pipe will executes only if the previous one failed.
+## The semicolon
+Separate commands with semicolon to ensure they all get executed.
+- Used to chain multiple command on a sinle line.
+
+E.g;
+```bash
+rm -rf MyDir; mkdir MyDir
+
+# Same as
+rm -rf MyDir
+```
+**Code Explanation:** Here,
+
+- If `MyDir` folder is already exists in current direcotry `rm` command will remove it, and then `mkdir` will create it again.
+- If `MyDir` is not present, then `rm` will fail and then `mkdir` will perform it's role.
+- Because `;` does not check exit status.
+
+Thus adding `;` between two or command ensures the execution of all commands. And even if one command fail, it will not prevent other commands from being executed.
+
+
+## Exit command
+We can use `exit` command and explicitly define the return code in our script.
+```bash
+exit 1
+exit 2
+.....
+exit 255
+etc
+```
+As for example let's consider the following script:
+```bash
+#!/bin/bash
+
+HOST="gle.com"
+
+ping -c 1 $HOST
+RETURN_CODE=$?
+
+if [ "$RETURN_CODE" -ne "0" ]
+then
+    echo "$HOST unreachable"
+    exit 1
+fi
+
+echo "$HOST reachable"
+exit 0
+```
+**Code Explanation:** Here,
+- If the url stored in `$HOST` is not reachable the `RETURN_CODE` will be not equal(`-ne`) to zero. So the `if` statement will be true and it will print `gle.com unreachable`. 
+- Then the script will terminate as we used `exit 1` command inside the `if` statement.
+- That's why `gle.com reachable` text will not be printed.
+
+**We can define the meaning of a return code in the exit command and add it to our script.**
 
 
 
+
+ 
 
 
 

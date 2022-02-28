@@ -15,3 +15,11 @@ First run the follwoing code on the desired svg file, then open the file in **In
 sed -i "s/ textLength='[^']*'//" file.svg
 ```
 --------------
+
+## To set Ctrl+` as the shortcut to toggle between editor and terminal in VSCode
+Open the keybindings.json from the editor: CMD-SHIFT-P -> Preferences: Open Keyboard Shortcuts File and add these entries:
+```bash
+// Toggle between terminal and editor focus
+{ "key": "ctrl+`", "command": "workbench.action.terminal.focus"},
+{ "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
+```
