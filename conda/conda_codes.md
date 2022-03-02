@@ -7,7 +7,7 @@
 
 
 ## Create an environment from yml file
-`conda env create -f environment.yml`
+`conda env create -n envname -f environment.yml`
 
 
 ## Display Conda environment information

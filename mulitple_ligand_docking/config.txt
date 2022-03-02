@@ -1,0 +1,13 @@
+receptor = receptor/urease_subunit_beta_2_model1.pdbqt
+
+center_x = 0.676
+center_y = 19.037
+center_z = -3.126
+
+size_x = 70
+size_y = 28
+size_z = 110
+
+exhaustiveness = 8
+num_modes = 10
+energy_range = 4
