@@ -91,8 +91,8 @@ script.sh parameter1 parameter2 parameter3
 
 Positional parameters are variable that contain the contents of the command line.
 
-The variables are `$0 to #9`
-
+- The variables are `$0 to #9`
+- `$@` contains all the parameters
 Here,
 ```bash
 	$0:"script.sh"
@@ -196,7 +196,123 @@ exit 0
 
 **We can define the meaning of a return code in the exit command and add it to our script.**
 
+# Function
 
+## Creating a function
+We can create functions in two ways in bash
+```bash
+# First method
+function function-name () {
+	# Code goes here
+}
+```
+```bash
+# Second method
+function-name() {
+	# Code goes here
+}
+```
+```bash
+# Call the function
+function-name
+```
+<font color = red> **NB: While calling function don't use the parenthesis.** </font>
+
+## Functions can call other functions.
+Let's consider a simple script
+```bash
+#!/bin/bash
+function hello(){
+    echo "Hello!"
+	now
+}
+function now() {
+	echo "It's $(date +%r)"
+}
+
+hello
+```
+**Code Explanation:** Here,
+- We defined two functions: `hello()` and `now()`
+- By definition funtion must be defined before calling it. Here in this example we called `now()` function inside `hello()`. Then we declared the `now()` function.
+- So, a question can come to our mind that we broke the rule of "Defining a function before calling it".
+- No, we didn't break any rule. Before calling `hello` function, we already declared the `now` function.
+
+<font color = red> But don't declare you function as like following exmaple: </font>
+
+```bash
+#!/bin/bash
+function hello(){
+    echo "Hello!"
+	now
+}
+
+hello
+
+function now() {
+	echo "It's $(date +%r)"
+}
+```
+- Here, we calling the `hello` function which use `now` function, and before declaring the `now` function we're calling it. And this will not work.
+
+<font color = blue> Functions can accept positional parameters just like shell scripts. But remember, here $0 = the script itself, not function name. </font>
+
+## Using positional parameters with function
+Let's consider a simple example:
+```bash
+# Declaring the function
+#!/bin/bash
+function hello(){
+	echo "Hei $1"
+}
+
+# Calling the function
+hello Riyaz
+
+----------
+# Output
+Hei Riyaz
+```
+Let's take this simple script to another level.
+```bash
+# Declaring the function
+#!/bin/bash
+function hello(){
+	for NAME in $@
+	do
+		echo "Hei $NAME"
+	done
+}
+
+# Calling the function
+hello Riyaz James Jhon
+
+----------
+# Output
+Hei Riyaz
+Hei James
+Hei Jhon
+```
+### Variable scope
+- By default, variables are global.
+	- That means, variables and its values can be access anywhere in the script, including in any function.
+- But beaware, variables have to be defined before use in function.
+
+### Local Variables
+A local variable is a variable that can only be accessed within the function in which it was declared.
+- Create using the `local` keyword.
+	- `local LOCAL_VAR=1`
+- Only functions can have local variable.
+- <font color = magenta>**Best paractice to keep variables local in functions.**</font>
+
+## Exit Status (Return Codes) in Functions
+Functions are like shell scripts within a shell script.
+- Just like a shell script functions also have exit status which is sometime called as `RETURN_CODES`
+- Explicitly
+	- `return <RETURN_CODE>`
+- If no return statement is used then the exit status of the function is the exit status of the last command executed in that function.
+
+Last tutorial position: 0402.Functions, Part II.mp4 >> 0.33 second
 
 
  

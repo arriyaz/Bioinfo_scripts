@@ -23,3 +23,8 @@ Open the keybindings.json from the editor: CMD-SHIFT-P -> Preferences: Open Keyb
 { "key": "ctrl+`", "command": "workbench.action.terminal.focus"},
 { "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
 ```
+
+## To search a word in man page of a command
+When the man page is active type `/` and then type your search word.
+
+
