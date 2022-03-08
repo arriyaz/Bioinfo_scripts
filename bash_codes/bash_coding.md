@@ -311,10 +311,59 @@ Functions are like shell scripts within a shell script.
 - Explicitly
 	- `return <RETURN_CODE>`
 - If no return statement is used then the exit status of the function is the exit status of the last command executed in that function.
+- For function, 
+	- Valid exit codes range from 0 to 255
+	- 0 = success
+	- $? = the exit status (`$status` for fish shell)
 
-Last tutorial position: 0402.Functions, Part II.mp4 >> 0.33 second
+
+## Shell Script Order and Checklist
+1. Shebang (`#!/bin/bash`)
+2. Comments/file header
+3. Global variables
+4. Functions
+	- Use `local` variables
+5. Main script content
+6. Exit with an exit status
+	- exit `<STATUS>` at various exit points.
+
+## Wildcard
+In the case of `wildcard` there is another concept called `globbing`.  
+- **Globbing** expands the wildcard pattern into a list of files and/or directories (PATHS).
+
+Most commonly used wild cards:
+- `*`- matches zeor or more character
+	- *.txt
+	- a*
+-  `?`- matches exactly one character
+	- ?.txt
+	- a?
+### Character Classes
+- `[]`- A character class
+	- Matches any of the characters included between the brackets.
+	- Mathces exactly one character.
+	- For example; `ca[nt]*` can match:
+		- can
+		- cat
+		- candy
+		- catch, etc.
+	- `[!]`- Matches any of the characters NOT included between the brackets. And matches exactly one character.
+	- For example `[!aeiou]*` can match:
+		- baseball
+		- cricket
+
+	(These two examples matched because first character of these examples do not mathch `a, e, i, o, u`.)
+
+ ### Wildcards - Ranges
+ - Use two character separated by a hyphen to create a range in a character class.
+ - `[a-g]*`
+	- Matches all files that start with `a, b, c, d, e, f, or g`.
+
+- `[3-6]*`
+	- Matches all files that start with `3, 4, 6, or 6`.
 
 
+**Last position of tutorial: `0602: 03:22`**
  
 
 

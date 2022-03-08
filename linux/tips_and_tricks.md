@@ -27,4 +27,15 @@ Open the keybindings.json from the editor: CMD-SHIFT-P -> Preferences: Open Keyb
 ## To search a word in man page of a command
 When the man page is active type `/` and then type your search word.
 
+## Remove directory names from a file PATH
+Let's say I've a file in the following path:
+`home/user/Documents/temp/myfilename.txt`  
+Now I want to remove directory part from this path and only keep the `myfilename.txt` part. I can do this by following code,
+```bash
+basename home/user/Documents/temp/myfilename.txt
+```
+If I want to remove extension part (`.txt`) and get only `myfilename` then following code will do that,
+```bash
+basename home/user/Documents/temp/myfilename.txt
+```
 
