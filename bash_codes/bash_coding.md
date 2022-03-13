@@ -338,6 +338,10 @@ Most commonly used wild cards:
 -  `?`- matches exactly one character
 	- ?.txt
 	- a?
+	- `ls ?` will print all the files which name is `one character` in length.
+	- If you want to print the names with **two character** long use `ls ??`.
+
+
 ### Character Classes
 - `[]`- A character class
 	- Matches any of the characters included between the brackets.
@@ -362,9 +366,92 @@ Most commonly used wild cards:
 - `[3-6]*`
 	- Matches all files that start with `3, 4, 6, or 6`.
 
+### Named Character Classes
+Instead of creating our own ranges we can use predefined named character classes.  
+Following are most commonly used character classes:
+- `[[:alpha:]]`	: mathches alphabetic letters ( both lower and uppercase).
+- `[[:alnum:]]`	: mathces alphabet (lower and uppercase) and numbers.
+- `[[:digit:]]`	: numbers and decimal from `0` to `9`.
+- `[[:lower::]]`: lowercase letters.
+- `[[:space::]]`: matches space characters like space, tab, newline.
+- `[[:upper:]]`	: uppercase letters.
 
-**Last position of tutorial: `0602: 03:22`**
- 
+
+### Matching Wildcard patterns
+- `\` : escape character.
+	- Use if you want to match a wildcard character.
+- For example, match all files that end with a question mark:
+	- `*\?`
+	- will match all words end with `?` mark, e.g., `done?`
 
 
+
+### Wildcard in Shell Scripts
+Lets see an example to use **wildcard in a for loop**:
+
+
+```bash
+#!/bin/bash
+
+cd /var/www
+for FILE in *.html
+do
+	echo "Copying $FILE"
+	cp $FILE /var/www-just-html
+done
+```
+
+Moreover instead of navigating to `/var/www/` directory by `cd` command, let's use another approach:
+```bash
+for FILE in /var/www/*.html
+do
+	echo "Copying $FILE"
+	cp $FILE /var/www-just-html
+done
+```
+
+# Case Statements
+Alternative to if statemens:
+- `if["$VAR"="one"]`
+- `elif["$VAR"="two"]`
+- `elif["$VAR"="three"]`
+- `elif["$VAR"="four"]`
+
+May be easier to read than complex if statesments
+
+## Template to create a case statement
+
+```bash
+case "$VAR" in
+	pattern_1)
+		# Commands go here.
+		;;
+	pattern_2)
+		# Commands go here.
+		;;
+	pattern_N)
+		# Commands go here.
+		;;
+esac
+```
+- Thus we can use as much pattern as we want.
+
+Let's see an example:
+```bash
+case "$1" in 
+	start)
+		/usr/sbin/sshd
+		;;
+	stop)
+		kill $(cat /var/run/sshd.pid)
+		;;
+esac
+```
+**Code Explanation**: 
+- Here the `case` statement examine the value of first argument (`$1`). We will provide this argument during running our shell script.
+- If `$1` equal to `start` then `/usr/sbin/sshd` will be executed.
+- If `$1` equal to `stop` then the `kill` command will be executed.
+- If `$1` doesn't match `start` or `stop` then nothing happens and shell script continues after the case statement.
+
+**NB: `case` statement is `case-sensitive`. So be cautious about the UPPER-CASE or lower-case letter of the `patterns`.**
 
