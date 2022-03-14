@@ -1,12 +1,16 @@
-#!bin/bash
+#!/bin/bash
 
 # The script was prepared by: Anisur Rahman Riyaz
 # Email: arriyaz.nstu@gmail.com
+
+# Stop on any error.
+set -ue
 
 read -e -p "Please provide the name of conda environment: " ENVT 
 read -e -p "What is your config file: " CONFIGFILE
 read -e -p "Plase provide the PATH of ligands forlder: "  LIGANDPATH
 read -e -p "What will be your ligand list name? " LIGANDLIST
+read -e -p "What is the receptor name? " RECEPTOR
 
 # Activate the dvf environment
 eval "$(conda shell.bash hook)" 
@@ -31,6 +35,7 @@ for x in $LIGAND
 do
 ## Perform docking
 vina \
+    --receptor ${RECEPTOR} \
     --config ${CONFIGFILE} \
     --ligand ${LIGANDPATH}/${x} \
     --log docking_results/${LIGANDLIST}/${x}.log \
@@ -61,6 +66,7 @@ echo "Completed     ${x}" >> run_log.txt
 
 echo
 echo
+
 done
 
 

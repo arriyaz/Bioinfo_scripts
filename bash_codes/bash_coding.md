@@ -455,3 +455,19 @@ esac
 
 **NB: `case` statement is `case-sensitive`. So be cautious about the UPPER-CASE or lower-case letter of the `patterns`.**
 
+Now let's make a slightly modified version of the previous script:
+```bash
+case "$1" in 
+	start|START)
+		/usr/sbin/sshd
+		;;
+	stop|STOP)
+		kill $(cat /var/run/sshd.pid)
+		;;
+	*)
+		echo "Usage: $0 start|stop" ; exit 1
+		;;
+esac
+```
+**Code explanaiton**: 
+- Here, we used `start or START` to match both upper and lower case.

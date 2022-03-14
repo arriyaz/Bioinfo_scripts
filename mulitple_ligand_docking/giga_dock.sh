@@ -1,7 +1,11 @@
-#!bin/bash
+#!/bin/bash
 
 # The script was prepared by: Anisur Rahman Riyaz
 # Email: arriyaz.nstu@gmail.com
+
+
+# Stop on any error.
+set -ue
 
 read -e -p "Please provide the name of conda environment: " ENVT 
 read -e -p "What is your config file: " CONFIGFILE
@@ -82,6 +86,10 @@ echo "Completed     ${i}" >> run_log.txt
 
 # End 1st for loop
 done
+
+# Copy all csv file in a separate folder
+mkdir -p all_csv
+find docking_results -type f -name "*.csv" | xargs cp -n -t all_csv
 
 echo ".."
 echo "...."

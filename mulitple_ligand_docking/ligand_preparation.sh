@@ -1,7 +1,15 @@
-#!bin/bash
+#!/bin/bash
+
+# The script was prepared by: Anisur Rahman Riyaz
+# Email: arriyaz.nstu@gmail.com
 
 # Use openbable 3.1.0 or above version.
 
+
+# Stop on any error.
+set -ue
+
+# Get the input
 read -e -p "Please provide the name of conda environment: " ENVT 
 read -e -p "Please provide the path of the folder which contain sdf files: " SDFFILEPATH
 
