@@ -2,7 +2,7 @@
 `conda create -n ENV_NAME`
 
 
-#### #Remove an environment
+#### Remove an environment
 `conda env remove -n ENV_NAME` python=3.10
 
 
