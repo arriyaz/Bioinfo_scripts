@@ -24,6 +24,7 @@
 #### Adding a channel and moving to top of the priority list
 `conda config --add channels biobakery`
 
+--------------
 
 ### Viewing a list of the packages in an environment
 #### If the environment is not activated, in your terminal window or an Anaconda Prompt, run:
@@ -36,6 +37,7 @@
 
 #### To see if a specific package is installed in an environment, in your terminal window or an Anaconda Prompt, run:
 `conda list -n myenv scipy`
+
 ----------
 #### To search all available version of a package in conda
 `conda search pkgName`
