@@ -5,6 +5,9 @@
 #### Remove an environment
 `conda env remove -n ENV_NAME` python=3.10
 
+#### Remove a package
+`conda remove package`
+
 
 #### Create an environment from yml file
 `conda env create -n envname -f environment.yml`
@@ -45,4 +48,5 @@
 
 
 
-
+#### To learn more about managing package in conda
+Visit [Conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html)
