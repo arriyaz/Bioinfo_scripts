@@ -42,6 +42,7 @@
 `conda list -n myenv scipy`
 
 ----------
+
 #### To search all available version of a package in conda
 `conda search pkgName`
 
