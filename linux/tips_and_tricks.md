@@ -38,7 +38,7 @@ If I want to remove extension part (`.txt`) and get only `myfilename` then follo
 ```bash
 basename home/user/Documents/temp/myfilename.txt
 ```
-## Setting up Shortcut key to open termina in the current directory
+## Setting up Shortcut key to open terminal in the current directory
 - Create a script named as **Termina** and save it in the following PATH.
 - Then make it executable
 ```bash
@@ -47,7 +47,7 @@ gnome-terminal" > ~/.local/share/nautilus/scripts/Terminal
 
 chmod +x ~/.local/share/nautilus/scripts/Terminal
 ```
-- Then set the shortcut key (here, **F12**) as like belows
+- Then set the shortcut key (here, **F12**) as like below:
 ```bash
 echo "F12 Terminal" > ~/.config/nautilus/scripts-accels
 ```
