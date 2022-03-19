@@ -38,4 +38,18 @@ If I want to remove extension part (`.txt`) and get only `myfilename` then follo
 ```bash
 basename home/user/Documents/temp/myfilename.txt
 ```
+## Setting up Shortcut key to open termina in the current directory
+- Create a script named as **Termina** and save it in the following PATH.
+- Then make it executable
+```bash
+echo "#! /bin/sh
+gnome-terminal" > ~/.local/share/nautilus/scripts/Terminal
+
+chmod +x ~/.local/share/nautilus/scripts/Terminal
+```
+- Then set the shortcut key (here, **F12**) as like belows
+```bash
+echo "F12 Terminal" > ~/.config/nautilus/scripts-accels
+```
+**Now restart your computer**. Then upon pressing **F12** button you will find that the terminal will open in the current active directory.
 
