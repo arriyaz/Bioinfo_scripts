@@ -58,3 +58,6 @@ If shortcut key doesn't work **restart your computer**. Then upon pressing **F12
 ```bash
 ls -lha | awk '{print $5, $NF}'
 ```
+**Code Explanation:**
+In **awk** the `NF` basically means how many number of fields/columns present in the data.  
+But here, in the above code, `$NF` denotes the last column, because the number of filed is the number of last column.
