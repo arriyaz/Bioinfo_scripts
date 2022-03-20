@@ -54,3 +54,7 @@ echo "F12 Terminal" > ~/.config/nautilus/scripts-accels
 **Then close File Manager Windows and Reopen them.** Now press **F12** and the terminal should open in current directory.  
 If shortcut key doesn't work **restart your computer**. Then upon pressing **F12** button you will find that the terminal will open in the current active directory.
 
+## Check the file sizes to see if they are all present and of reasonable size
+```bash
+ls -lha | awk '{print $5, $NF}'
+```
