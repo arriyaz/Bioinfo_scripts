@@ -39,7 +39,7 @@ If I want to remove extension part (`.txt`) and get only `myfilename` then follo
 basename home/user/Documents/temp/myfilename.txt
 ```
 ## Setting up Shortcut key to open terminal in the current directory
-- Create a script named as **Termina** and save it in the following PATH.
+- Create a script named as **Terminal** and save it in the following PATH.
 - Then make it executable
 ```bash
 echo "#! /bin/sh
