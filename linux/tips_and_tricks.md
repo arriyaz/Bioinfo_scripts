@@ -38,6 +38,7 @@ If I want to remove extension part (`.txt`) and get only `myfilename` then follo
 ```bash
 basename home/user/Documents/temp/myfilename.txt
 ```
+<<<<<<< HEAD
 ## Grep all the line that start with a particular word
 Let's say you want to extract all the lines which start with word SRR:
 `grep ^SRR FileName`
@@ -48,3 +49,28 @@ Here, the `^` sign denotes the begining of lines.
 `cut -f 2- FILENAE`
 **Code Explanation:**  
 Here, the `2-` means column 2 to last column. Ovbiously, you can use other number also.
+=======
+## Setting up Shortcut key to open terminal in the current directory
+- Create a script named as **Terminal** and save it in the following PATH.
+- Then make it executable
+```bash
+echo "#! /bin/sh
+gnome-terminal" > ~/.local/share/nautilus/scripts/Terminal
+
+chmod +x ~/.local/share/nautilus/scripts/Terminal
+```
+- Then set the shortcut key (here, **F12**) as like below:
+```bash
+echo "F12 Terminal" > ~/.config/nautilus/scripts-accels
+```
+**Then close File Manager Windows and Reopen them.** Now press **F12** and the terminal should open in current directory.  
+If shortcut key doesn't work **restart your computer**. Then upon pressing **F12** button you will find that the terminal will open in the current active directory.
+
+## Check the file sizes to see if they are all present and of reasonable size
+```bash
+ls -lha | awk '{print $5, $NF}'
+```
+**Code Explanation:**
+In **awk** the `NF` basically means how many number of fields/columns present in the data.  
+But here, in the above code, `$NF` denotes the last column, because the number of filed is the number of last column.
+>>>>>>> 35f16df1e006ddadeeafff21a294e395eda1c50c

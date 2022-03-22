@@ -417,7 +417,8 @@ Alternative to if statemens:
 - `elif["$VAR"="three"]`
 - `elif["$VAR"="four"]`
 
-May be easier to read than complex if statesments
+May be easier to read than complex if statesments.
+That's why `case` statements can be used in place of `if` statements.
 
 ## Template to create a case statement
 
@@ -435,8 +436,10 @@ case "$VAR" in
 esac
 ```
 - Thus we can use as much pattern as we want.
+- Pattern can include **wildcards**.
+- Can use multiple pattern matching by using `pipeline`.
 
-Let's see an example:
+**Let's see an example:**
 ```bash
 case "$1" in 
 	start)
@@ -471,3 +474,33 @@ esac
 ```
 **Code explanaiton**: 
 - Here, we used `start or START` to match both upper and lower case.
+- Same for `sotp or STOP` 
+
+### Let's use case statements to create a script that will ask for input from user.
+```bash
+read -p "Enter y or n: " ANSWER
+case "$ANSWER in 
+	[yY] | [yY][eE][sS] )
+		echo "You answered yes."
+		;;
+	[nN] | [nN][oO] )
+		echo "You answered no."
+		;;
+	*)
+		echo "Invalid answere."
+		;;
+esac
+```
+**Code Explanation:**  
+Here,
+- `[yY]` is a character class, which means that user can input either `lower-case y` or `UPPER-CASE Y`.
+- Then, we used pipe sign `|` which means `or`.
+- By using `[yY] | [yY][eE][sS]` pattern meant that user can enter either only `y` or full word `yes` and by `[]` character class any case (both lower and upper) of the character.
+- Same explanation for `no` pattern.
+- `*` means if the anwser is anything other than `yes` or `no` then this case statement will print `Invalid answer.`
+
+## Logging
+- Logs are the **who, what, when, where, and why**.
+- Output may scroll off the screen.
+- Script may run unattendent (via `cron`, etc.)
+-
