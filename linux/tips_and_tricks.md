@@ -49,6 +49,7 @@ Here, the `^` sign denotes the begining of lines.
 
 **Code Explanation:**  
 Here, the `2-` means column 2 to last column. Ovbiously, you can use other number also.
+
 =======
 ## Setting up Shortcut key to open terminal in the current directory
 - Create a script named as **Terminal** and save it in the following PATH.
