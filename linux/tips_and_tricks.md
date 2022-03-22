@@ -73,4 +73,4 @@ ls -lha | awk '{print $5, $NF}'
 **Code Explanation:**
 In **awk** the `NF` basically means how many number of fields/columns present in the data.  
 But here, in the above code, `$NF` denotes the last column, because the number of filed is the number of last column.
->>>>>>> 35f16df1e006ddadeeafff21a294e395eda1c50c
+
