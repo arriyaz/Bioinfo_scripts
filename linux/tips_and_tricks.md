@@ -38,7 +38,6 @@ If I want to remove extension part (`.txt`) and get only `myfilename` then follo
 ```bash
 basename home/user/Documents/temp/myfilename.txt
 ```
-<<<<<<< HEAD
 ## Grep all the line that start with a particular word
 Let's say you want to extract all the lines which start with word SRR:
 `grep ^SRR FileName`
@@ -47,6 +46,7 @@ Here, the `^` sign denotes the begining of lines.
 
 ## Cut the 2nd to last column of a file
 `cut -f 2- FILENAE`
+
 **Code Explanation:**  
 Here, the `2-` means column 2 to last column. Ovbiously, you can use other number also.
 =======
