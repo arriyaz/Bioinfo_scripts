@@ -8,3 +8,9 @@ git commit -a -m "${MSG}"
 
 # push the changes
 git push
+
+# Show a message
+echo
+echo "Your changes are updated."
+
+
