@@ -499,8 +499,166 @@ Here,
 - Same explanation for `no` pattern.
 - `*` means if the anwser is anything other than `yes` or `no` then this case statement will print `Invalid answer.`
 
-## Logging
+# Logging
 - Logs are the **who, what, when, where, and why**.
 - Output may scroll off the screen.
 - Script may run unattendent (via `cron`, etc.)
--
+
+## Syslog
+The linux operating system uses the **syslog** standard for message logging.
+- The **syslog** standard uses facilities and severities to categorize messages.
+	- **Facilities**: kern, user, mail, daemon, auth, local0, local7
+	- **Severities**: emerg, alert, crit, err, warnings, notice, info, debug
+> If it is not clear what facility to use, then you can use **user** facility.
+> Facilites ranging from **local0** to **local7** are to be used for custom log. These facilites would also be useful for custom written shell scripts.
+> The most severe message is an **emergency** message and the least severe message is an **debugging** message.
+- Log file locations are configurable:
+	- `var/log/message`
+	- `var/log/syslog`
+
+## Logging with logger
+- The logger utility
+- By default cretes user.notice messages.  
+`logger "Message"`
+- If you want to specify the facility and severity:  
+`logger -p local0.info "Message"`  
+Here, after `-p` specify **facility.severity** (eg.; `local0.info`)  
+- If we want add our script name as tag, **which will help us to search for our script in the log file just to extract messages for our script**, use `-t scriptname`.  
+`logger -t myscript -p local0.info "Message"`  
+ - If you want to add **PID** or process ID use `-i` option;  
+ `logger -i -t myscript "Message"`  
+ - During entry to view log message on screen use `-s` option;  
+ `logger -s -p local0.info "Message"`
+
+ **To view system log in Ubuntu access system log file by following code.**  
+ `cat /var/log/syslog`
+
+
+We can create a function in our bash script to add log text.
+
+ ```bash
+ logit () {
+	local LOG_LEVEL=$1
+	shift
+	MSG=$@
+	TIMESTAMP=$(date +"%Y-%m-%d %T")
+	if [ $LOG_LEVEL = 'ERROR' ] || $VERBOSE
+	then
+	 	echo "${TIMESTAMP} ${HOST}
+	${PROGRAM_NAME} [${PID}]: ${LOG_LEVEL} ${MSG}"
+	fi
+ }
+```
+**Code Explanation:**  
+- By `local` function we created a local variable for this function.
+- Then `shift` is used to shift the positional parameter to the left. This means the special variable `$@` contains all the positional parameter except the parameter `$1` as we already used it as `$LOG_LEVEL`.
+- Then, if the `$LOG_LEVEL` variable is equal to **ERROR** or, `$VERBOSE` is true then echo some message to the screen which include different information along with our log message.
+- Instead of using `echo` command, we can use `logger` command to insert log message directly into `syslog`.  
+
+**Here some example of calling this function:**
+```bash
+## Minimal example
+logit INFO "Processing data."
+
+## Another example
+command ARGUMENT || logit ERROR "Could not fetch data from $HOST"
+```
+**Code Explanation:**
+- In the first code, we define log level (`INFO`) and then our message.
+- But, we can also this function with other command or with script.
+- Here, 2nd command denotes; if first command fails `logit` function will generate this error message.
+
+# While Loop
+A while is a loop that repeats a series of commands as long as a given **CONDITION** is true.
+The **CONDITION** could be;
+- some sort of test such as a **VARIABLE**, certain **value**, or to check if a file exists.
+- Any **command**; if the command succeed returns a zero exit status the **while** loop will be executed.
+
+## While Loop Format
+```bash
+while [ CONDITION_IS_TRUE ]
+do
+	# Commands change the condition
+	command 1
+	command 2
+	.........
+	command N
+done
+```
+## Infinite Loops
+```bash
+while [ CONDITION_IS_TRUE ]
+do
+	# Commands do NOT change the condition
+	command N
+done
+```
+**NB:** May be sometime you may need to intentionally creat a **Infinite Loops**.
+
+### Example 1 - Loop 5 Times 
+```bash
+INDEX=1
+while [ $INDEX -lt 6 ]
+do
+	echo "Hello this is index $INDEX"
+	((INDEX++))
+done
+```
+**Code Explanation:** Here,  
+- `-lt` means less than
+- `((INDEX++))` is called **Arithmatic Expansion**, where 1 will be added after each iteration.
+>> When you inclose a mathmaticcal expression in double parenthesis i.e.; (()), it is called arithmatic expansion.
+
+### Example 2 - Checking User Input
+```bash
+while [ "$CORRECT" != "y" ]
+do
+	read -p "Enter your name: " NAME
+	read -p "Is ${NAME} correct? " CORRECT
+done
+```
+**Code Explanation:**
+- In this case, the code will ask user to insert name and then ask if the the name is correct.
+- If the user insert **y**, the loop will be completed.
+- But if the user insert anything other than **lowercase y** the loop will continue and again to enter the name and confirmation.
+
+### Example 3 - Check the return code of a command
+```bash
+while ping -c 1 ge.com > /dev/null
+do
+	echo "ge.com is responding..."
+	sleep 5
+done
+
+echo "ge.com is down, continuing the rest of the script."
+```
+**Code Explanation:** Here,
+- We check the connectivity of `ge.com` site. If the site is pingable `while loop` will be executed and repeat the loop until the `ge.com` stops responding.
+- `-c 1` means sending one data packets.
+- `> /dev/null` is used to redirect ping output to dev null as we don't want to view the ping output.
+- If the site doen't respong and ping received no packets then the `while loopl` will break and continue to the rest of the script.
+
+### Example 4 - Reading a file line by line
+If you directly use a `while loop` to read a file line by line, it won't work.  
+You have to use `read` comand along with `while loop`.
+```bash
+read -e -p "Insert your file name: " FILE 
+
+LINE_NUM=1
+while read LINE
+do
+	echo "${LINE_NUM} :  ${LINE}"
+	((LINE_NUM++))
+done < $FILE
+```
+**Code Explanation**: Here,  
+- This code will ask you to provide the file name. Then it will read each line and print in terminal.
+- In first `read` command;
+	- `-e` is used for auto tab completion.
+	- `-p` is used to prompt the asking message in the terminal.
+-  `done < $FILE` form this part `while loop` takes input.
+
+> Last position: video : 0902 (While loop part 2) at 01:28
+
+
+
