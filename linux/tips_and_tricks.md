@@ -38,7 +38,6 @@ If I want to remove extension part (`.txt`) and get only `myfilename` then follo
 ```bash
 basename home/user/Documents/temp/myfilename.txt
 ```
-<<<<<<< HEAD
 ## Grep all the line that start with a particular word
 Let's say you want to extract all the lines which start with word SRR:
 `grep ^SRR FileName`
@@ -47,8 +46,10 @@ Here, the `^` sign denotes the begining of lines.
 
 ## Cut the 2nd to last column of a file
 `cut -f 2- FILENAE`
+
 **Code Explanation:**  
 Here, the `2-` means column 2 to last column. Ovbiously, you can use other number also.
+
 =======
 ## Setting up Shortcut key to open terminal in the current directory
 - Create a script named as **Terminal** and save it in the following PATH.
@@ -73,4 +74,4 @@ ls -lha | awk '{print $5, $NF}'
 **Code Explanation:**
 In **awk** the `NF` basically means how many number of fields/columns present in the data.  
 But here, in the above code, `$NF` denotes the last column, because the number of filed is the number of last column.
->>>>>>> 35f16df1e006ddadeeafff21a294e395eda1c50c
+
