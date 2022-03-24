@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Please provide your commit message : " MSG
+read -p "Please provide your commit message: " MSG
 
 
 # Git commit with a argument parameter
