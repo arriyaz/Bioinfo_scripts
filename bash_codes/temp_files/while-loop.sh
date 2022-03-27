@@ -1,11 +1,22 @@
 #!/bin/bash
 
-read -e -p "Insert your file name: " FILE 
 
-LINE_NUM=1
-while read LINE
+
+while true
 do
-	echo "${LINE_NUM} :  ${LINE}"
-	((LINE_NUM++))
-done < $FILE
-
+	read -p "1:Show disk usage. 2: Show uptime. " CHOICE
+	case "$CHOICE" in
+		1)
+			df -h
+			break
+			;;
+		2)
+			uptime
+			break
+			;;
+		*)
+			echo "Please insert '1' or '2'"
+			break
+			;;
+	esac
+done

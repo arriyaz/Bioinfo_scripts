@@ -658,7 +658,60 @@ done < $FILE
 	- `-p` is used to prompt the asking message in the terminal.
 -  `done < $FILE` form this part `while loop` takes input.
 
-> Last position: video : 0902 (While loop part 2) at 01:28
+### Example 5 - Reading more than one variable 
+In the previous example `read` command reads whole line into one variable.  
+- But, `read` command supports splitting the data and reads the data into multiple variable.  
+- Each variable supplied to the command will store one word or one filed.
+- Any lefover word or words will be assigned to the last supplied variable.
+```bash
+FS_NUM=1
+grep ext4 /etc/fstab | while read FS MP REST
+do
+	echo "${FS_NUM}: file system : ${FS}"
+	echo "${FS_NUM}: mount point: ${MP}"
+	((FS_NUM++))
+done
+```
+**Code Explanation:** 
+- Here, at first we used `command` to extract the lines that contains the word **ext4** from `/etc/fastab` file.
+- After piping the `grep` command with `while` loop we used `read` command.
+- In this example the `read` command takes three VARIABLE.
+	- **FS** : will store first word of the file
+	- **MP**: will store second word of the file
+	- **REST**: will store all words from the rest of the line.
+
+## break
+If you want to exit a loop before it's normal ending you can use the **break** statement.
+- The `break` statement exit the loop but it doesn't exit the script. The script will continue after the loop.
+- `break` statement can be used with other kinds of loops also.
+
+```bash
+while true
+do
+	read -p "1:Show disk usage. 2: Show uptime. " CHOICE
+	case "$CHOICE" in
+		1)
+			df -h
+			break
+			;;
+		2)
+			uptime
+			break
+			;;
+		*)
+			echo "Please insert 1 or 2"
+			break
+			;;
+	esac
+done
+```
+**Code explanation**:  
+This example creates an infinite loop using `while true`.  
+- It asks the user for some input and stores in variable CHOICE.
+- A `case` statement is used to take action based on user input.
+- If **1** is input then `df` command will be excuted and `break` command will break the loop.
+- If **2** is inserted as input `uptime` command will be executed and then `break` command will exit the loop.
+- If anything other than `1` or `2` then code will ask to insert correct input and break the loop.
 
 
-
+> Last video position: video-0902: at 03:22
