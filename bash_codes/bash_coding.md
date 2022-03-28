@@ -713,5 +713,36 @@ This example creates an infinite loop using `while true`.
 - If **2** is inserted as input `uptime` command will be executed and then `break` command will exit the loop.
 - If anything other than `1` or `2` then code will ask to insert correct input and break the loop.
 
+## continue  
+Let's imagine a situation we want to update our blast databases. But, if any database is very recetnly updated we want to skip its update as each database is very large in size.  
+For this purpose we can use `continue` statement in any loops (like `for loop`, `while loop`).  
+- If a condition is met then `continue` statement will skip the commands and restart the next iteration.
+- In other words any command that follow the `continue` statement in the loop will not be executed and restart the loop and `while` condition will be examined again.
 
-> Last video position: video-0902: at 03:22
+
+```bash
+mysql -BNe 'show databases' | while read DB
+do
+	do-backed-up-recently $DB
+	if [ "$?" -eq "0" ]
+	then
+		continue
+	fi
+	backup $DB
+done
+```
+**Code explanation**: Here, we loop through a list of **mysq** database.
+- `-B` to desable ASCII table output, that mysql normaly displays.
+- `-N` suppresses the column name in the output. This prevents the header from displayed.
+- `-e` will execute the command that followed it.
+- Altogether this **mysql** command will show a list of database.
+- `while` will read each database name by `read` command and store it in `DB` variable.
+- If the database is backed up recently `do-backed-up-recently` will return exit command `0`.
+- Here, `do-backed-up-recently` and `backup` are imaginary command, we can use our required command or script.
+- So, if the exit code is `0` (`"$?" -eq "0"`) then `continue` statement will skip the `backup $DB` command and restart the loop for next database.
+- `$?` contains the return code of the previosuly executed command.
+- If `$?` returns non-zero exit status `continue` command inside `if` statement will not be executed, and that's why `backup $DB` will be executed.
+
+
+
+
