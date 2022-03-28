@@ -13,6 +13,14 @@ Use script:
 Use script:
 - **giga_dock.sh**
 
+
+### Post docking Screening
+After Docking screen all data by
+- **03.post_dock_screening.sh**
+
+### ADMET screening
+- **04.ADMET_data_filtration.sh**
+
 ----------
 
 **To learn more abount ligand prepration and related information visit following youtube videos:**
