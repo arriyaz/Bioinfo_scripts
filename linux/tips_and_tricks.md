@@ -75,3 +75,32 @@ ls -lha | awk '{print $5, $NF}'
 In **awk** the `NF` basically means how many number of fields/columns present in the data.  
 But here, in the above code, `$NF` denotes the last column, because the number of filed is the number of last column.
 
+## Check if the system cotains a certain command
+Let's say you want to check whether your system contains **cowsay** command.
+**NB: We can include this code in your bash script.**
+```bash
+if ! command -v cowsay &> /dev/null
+then
+    echo "	Command 'cowsay' could not be found"
+    echo "	You can install it by using following commamd: "
+    echo 
+    echo "	sudo apt install cowsay"
+    echo
+	
+    exit
+fi
+```
+## Check if a directory contains files then delete it.
+If directory contains previous **txt** files following code will remove them.
+
+```bash
+if [ -n "$(ls -A DirName/ 2> /dev/null)" ]
+then
+  echo "SMILES directory cotains previous files."
+  echo "Removing them........"
+  sleep 1s
+  rm -rf DirName/*.txt
+fi
+```
+
+
