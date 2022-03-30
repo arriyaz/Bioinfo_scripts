@@ -743,6 +743,61 @@ done
 - `$?` contains the return code of the previosuly executed command.
 - If `$?` returns non-zero exit status `continue` command inside `if` statement will not be executed, and that's why `backup $DB` will be executed.
 
+# Debugging
+
+## Built in Debugging Help
+- `-x` = Print commands as they execute
+- After substitutions and expansions
+- Called an **x-trace**, tracing, or print debugging
+- You can add `-x` to script as follow `#!/bin/bash -x`
+- If you want to use debugging from a cetain part of script add `set -x` in that part of the script
+	- `set +x` to stop debugging  
+
+A sample example that shows the use of `-x` option.
+```bash
+#!/bin/bash -x
+TEST_VAR="test"
+echo "$TEST_VAR"
+```
+**NB: But for some reason `#!/bin/bash -x` code doen't create result as we expected. So I added `set -x` at the beginnig of the code.**  Like as follow:
+```bash
+#!/bin/bash
+set -x
+TEST_VAR="test"
+echo "$TEST_VAR"
+```
+The result will be as follow:
+```bash
++ TEST_VAR=test
++ echo test
+test
+```
+**Sometimes you may need to turn off the command printing as they execute add `set +x` in the script. This will stop debugging after this line.**
+```bash
+#!/bin/bash
+set -x
+TEST_VAR="test"
+echo "$TEST_VAR"
+set +x
+hostname
+```
+
+**Another useful option that can help you to find error in your script is `-e` option**
+- `-e` = Exit on error.
+- It causes your script immediately if any command returns **non-zero** exit status. In simple word if any line of your code fail to run, then the script will exit.
+- Can be combined with other options. Like;
+	- `set -ex`
+	- `set -xe`
+	- `set -e -x`
+
+**NB: To learn more about `set` use;**
+```bash
+help set | less
+```
+> Last position: Video 1001 completed, next 1002
+
+
+
 
 
 
