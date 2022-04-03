@@ -794,7 +794,7 @@ hostname
 ```bash
 help set | less
 ```
-## Extra Debuggin Tips
+## Extra Debugging Tips
 
 
 
