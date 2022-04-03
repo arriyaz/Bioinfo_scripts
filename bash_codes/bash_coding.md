@@ -794,7 +794,9 @@ hostname
 ```bash
 help set | less
 ```
-> Last position: Video 1001 completed, next 1002
+## Extra Debuggin Tips
+
+
 
 
 
