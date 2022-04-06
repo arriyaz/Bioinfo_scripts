@@ -72,7 +72,7 @@ sudo apt-get install pinta
 
 ## Install **JupyterLab**
 Download **Jupyterlab** deb file from the following link:  
-[jupyterlab for Ubuntu](https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb)
+- [Jupyterlab for Ubuntu](https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb)
 
 ### Set Python Environment in JupyterLab
 When we install **JupyterLab** we have to set python environment path. By default we can use Jupyterlab's budndled environment. But to use it with different **conda environment** we should use **Custom Python environment**.
