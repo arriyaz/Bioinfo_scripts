@@ -69,21 +69,7 @@ ResultInactive=no
 ResultActive=yes
 ```
 
-# Set Python Environment in JupyterLab
-When we install **JupyterLab** we have to set python environment path. By default we can use Jupyterlab's budndled environment. But to use it with different **conda environment** we should use **Custom Python environment**.
 
-- For this purpose, first we have to install **jupyterlab**
-tool in **base** environment inside our miniconda by followoing code.  
-```bash
-conda install jupyterlab
-```
-- Then click on the following option as indicated in the image.
-
-![Set-python-environment-1](./images/set-python-env-1.png)
-
-- Then following dialog box will appear and we can set our custom environment.
-
-![Set-python-environment-2](./images/set-python-env-2.png)
 
 
 
