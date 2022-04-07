@@ -39,7 +39,7 @@ sudo apt-get update -y
 
 Run the install command with -y flag to quickly install the packages and dependencies.
 ```shell
-sudo apt-get install -y okular
+sudo snap install okular
 ```
 
 ## Install Pinta

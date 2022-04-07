@@ -5,12 +5,12 @@ This brings us to a very important point about how most commands work. Commands 
 command -options arguments
 ```
 ## Common Options `ls` command
-| Option | Long option      | Description                                                                                                                                                                                                                   |
-| :----- | :--------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -a     | --all            | List all files, even those with names that begin with a period, which are normally not listed (that is, hidden)                                                                                                               |
-| -A     | --almost-all     | Like the -a option except it does not list . (current direc- tory) and .. (parent directory).                                                                                                                                 |
-| -d     | --directory      | Ordinarily, if a directory is specified, ls will list the contents of the directory, not the directory itself. Use this option in conjunction with the -l option to see details about the directory rather than its contents. |
-| -F     | --classify       | This option will append an indicator character to the end of each listed name. For example, it will append a forward slash (/) if the name is a directory.                                                                    |
+| Option | Long option | Description |
+| :----- | :--------------- |------|
+| -a     | --all            | List all files, even those with names that begin with a period, which are normally not listed (that is, hidden) |
+| -A     | --almost-all | Like the -a option except it does not list . (current direc- tory) and .. (parent directory).|
+| -d     | --directory | Ordinarily, if a directory is specified, ls will list the contents of the directory, not the directory itself. Use this option in conjunction with the -l option to see details about the directory rather than its contents. |
+| -F     | --classify | This option will append an indicator character to the end of each listed name. For example, it will append a forward slash (/) if the name is a directory.                                                                    |
 | -h     | --human-readable | In long format listings, display file sizes in human- readable format rather than in bytes.                                                                                                                                   |
 | -l     |                  | Display results in long format.                                                                                                                                                                                               |
 | -r     | --reverse        | Display the results in reverse order. Normally, ls dis- plays its results in ascending alphabetical order.                                                                                                                    |
@@ -378,14 +378,6 @@ Most commonly used wild cards:
 	- `ls ?` will print all the files which name is `one character` in length.
 	- If you want to print the names with **two character** long use `ls ??`.
 
-| Wildcard      | Meaning                                                          |
-| :------------ | :--------------------------------------------------------------- |
-| *             | Matches any characters                                           |
-| ?             | Matches any single character                                     |
-| [characters]  | Matches any character that is a member of the set characters     |
-| [!characters] | Matches any character that is not a member of the set characters |
-| [[:class:]]   | Matches any character that is a member of the specified class    |
-
 
 ### Character Classes
 - `[]`- A character class
@@ -401,7 +393,7 @@ Most commonly used wild cards:
 		- baseball
 		- cricket
 
-	(These two examples matched because first character of these examples do not mathch `a, e, i, o, u`.)  
+	(These two examples matched because first character of these examples do not mathch `a, e, i, o, u`.)
 
  ### Wildcards - Ranges
  - Use two character separated by a hyphen to create a range in a character class.
@@ -420,20 +412,6 @@ Following are most commonly used character classes:
 - `[[:lower::]]`: lowercase letters.
 - `[[:space::]]`: matches space characters like space, tab, newline.
 - `[[:upper:]]`	: uppercase letters.
-
-**Wildcards Example**
-| Pattern                | Matches                                                                   |
-| :--------------------- | :------------------------------------------------------------------------ |
-| *                      | All files                                                                 |
-| g*                     | Any file beginning with g                                                 |
-| b*.txt                 | Any file beginning with b followed by any characters and ending with .txt |
-| Data???                | Any file beginning with Data followed by exactly three                    |
-|                        | characters                                                                |
-| [abc]*                 | Any file beginning with either an a, a b, or a c                          |
-| BACKUP.[0-9][0-9][0-9] | Any file beginning with BACKUP. followed by exactly three numerals        |
-| [[:upper:]]*           | Any file beginning with an uppercase letter                               |
-| [![:digit:]]*          | Any file not beginning with a numeral                                     |
-| *[[:lower:]123]        | Any file ending with a lowercase letter or the numerals 1, 2, or 3        |
 
 
 ### Matching Wildcard patterns
@@ -468,25 +446,6 @@ do
 	cp $FILE /var/www-just-html
 done
 ```
-
-# ln—Create Links
-The ln command is used to create either hard or symbolic links. It is used in one of two ways.  
-The following creates a hard link:
-```
-ln file link
-```
-The following creates a symbolic link:
-```
-ln -s item link
-```
-where item is either a file or a directory.
--  With GNOME, holding the ctrl+shift keys while dragging a file will create a link rather than copying (or moving) the file.
-
-
-**Soft Links:** In Linux, a soft link, also known as a symbolic link, is a special sort of file that points at a different file. In Windows vocabulary, you could think of it like a shortcut. Because the connection is a logical one, and not a duplication, soft links can point at entire directories or link to files on remote computers. Hard links cannot do this.
-
-**Hard Links:** 
-In the Linux operating system, a hard link is equivalent to a file stored in the hard drive – and it actually references or points to a spot on a hard drive. A hard link is a mirror copy of the original file. The distinguishing characteristic of a hard link from a soft link is that deleting the original file doesn't affect a hard link, while it renders a soft link inoperable.
 
 # Case Statements
 Alternative to if statemens:
