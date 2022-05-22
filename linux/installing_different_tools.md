@@ -90,6 +90,12 @@ conda install jupyterlab
 
 ![Set-python-environment-2](./images/set-python-env-2.png)
 
+### Install Solarized Dark theme in jupyterlab
+This theme is quite suitable for me. To install it.
+```bash
+pip install jupyterlab_theme_solarized_dark
+```
+
 ## Install ksnip
 ```bash
 sudo snap install ksnip
