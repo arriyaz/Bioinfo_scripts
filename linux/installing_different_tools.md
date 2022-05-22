@@ -95,6 +95,10 @@ This theme is quite suitable for me. To install it.
 ```bash
 pip install jupyterlab_theme_solarized_dark
 ```
+To uninstall it:
+```bash
+pip uninstall jupyterlab_theme_solarized_dark
+```
 
 ## Install ksnip
 ```bash
