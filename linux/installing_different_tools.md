@@ -84,7 +84,7 @@ conda install jupyterlab
 ```
 - Then click on the following option as indicated in the image.
 
-![Set-python-environment-1](./images/set-python-env-1.png)
+![Set-python-environment-1](./graph_images/set-python-env-1.png)
 
 - Then following dialog box will appear and we can set our custom environment.
 
