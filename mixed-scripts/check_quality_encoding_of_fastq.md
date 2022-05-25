@@ -16,7 +16,7 @@ Sanger,Illumina-1.8	35	71
 
 ## Choosing sequence for in Qiime2
 While importing sequences in `qiime2` it is almost always challenging to identify sequence quality for the `--input-format` option of `qiime tools import` command.
-After running the `guess-encoding.py` file, we can identify the **Phred Offset** from follwoing figure.
+After running the `guess-encoding.py` file, we can identify the **Phred Offset** from following figure.
 ![Phred Offset](images/phred-offset.png)
 
 For more info about this idea, go to this [link](http://scikit-bio.org/docs/latest/generated/skbio.io.format.fastq.html#quality-score-variants)
