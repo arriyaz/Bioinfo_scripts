@@ -93,6 +93,7 @@ if [ condition-is-ture]
 then
 	command N
 elif [condition-is-true]
+then
 	command N
 else
 	command N
