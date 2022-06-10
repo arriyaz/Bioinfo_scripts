@@ -1,0 +1,41 @@
+
+## `for loop` Syntax
+```bash
+for VARIABLE in 1 2 3 4 5 .. N
+do
+    command1
+    command2
+    commandN
+done
+```
+OR
+```bash
+for VARIABLE in file1 file2 file3
+do
+    command1 on $VARIABLE
+    command2
+    commandN
+done
+```
+OR
+```bash
+for OUTPUT in $(Linux-Or-Unix-Command-Here)
+do
+    command1 on $OUTPUT
+    command2 on $OUTPUT
+    commandN
+done
+```
+
+## Examples
+
+### loop by count
+```bash
+#!/bin/bash
+for i in 1 2 3 4 5
+do
+   echo "Welcome $i times"
+done
+```
+
+
