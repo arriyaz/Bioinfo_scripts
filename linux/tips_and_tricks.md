@@ -103,4 +103,73 @@ then
 fi
 ```
 
+## Repeat a string or number for *n* times
+### By `for loop`
+```bash
+for i in {1..5}
+do
+echo "Hello World"
+done
+```
+Or, in one line,
+```bash
+for i in {1..3}; do echo "Hi";done
+```
+### By `seq` and `awk`
+```bash
+seq 5 | awk '{print "Hello World"}'
+```
+
+### By `seq` and `sed`
+```bash
+seq 5 | sed "c Hello World"
+```
+
+## Generating list of names with sequential number
+Sometime while we creating a dataset, metadata etc we may need to generate a list of names as like following example:
+```
+BD-01
+BD-02
+BD-03
+BD-04
+BD-05
+```
+Using `seq` command we can achive this output easily.
+```bash
+seq -f 'BD-%02g' 5
+```
+To learn more about this command, go to this link [seq command in Linux with Examples](https://www.geeksforgeeks.org/seq-command-in-linux-with-examples/)
+
+## Combine two column from two file (side by side)
+Let's say we have two files.  
+One contains sample names (in *names.txt* file) as follows:
+```
+sample-01
+sample-02
+sample-03
+sample-04
+sample-05
+```
+Another contains DNA barcode ( in *dan.txt* file) as follows:
+```
+CATCCCTCTAGG
+CCTTAGATAACC
+GGATACAGTGAC
+TTTGATAGGTTT
+GTGGGGTACAGC
+```
+Now we want to combine both files to get a **csv** file as follows:
+```
+sample-01,CATCCCTCTAGG
+sample-02,CCTTAGATAACC
+sample-03,GGATACAGTGAC
+sample-04,TTTGATAGGTTT
+sample-05,GTGGGGTACAGC
+```
+To get this result we can use `paste` command:
+```
+paste -d ',' names.txt dna.txt
+```
+To learn more about `paste` command go to this link: [Paste command in Linux with examples](https://www.geeksforgeeks.org/paste-command-in-linux-with-examples/)
+
 
