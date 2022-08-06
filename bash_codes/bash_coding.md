@@ -140,6 +140,38 @@ Here,
 ```
 We can access all the positional parameters starting as `$1` to `$9` by using the special variable `$@`.
 
+## Options or Flags
+To use options or flags in our bash script we can use `getopts` command.  
+In the following example we will use this command two create two flags `-n` for **name** and `-m` for **mode**.  
+Based on our chosen mode, the script will run different code.
+
+```bash
+#!/user/bin/bash
+
+while getopts n:m: flag
+do
+case "${flag}" in 
+    n) name=${OPTARG};;
+	m) mode=${OPTARG};;
+esac
+
+done
+
+if [ "$mode" == 'happy' ]
+then
+    echo "Hi! ${name}, you're in happy mode."
+
+elif [ "$mode" == 'sad' ]
+then
+    echo "Hi! ${name}, you're in sad mode."
+
+else [ "$mode" != 'happy' ] || [ "$mode" != 'sad' ]
+
+    echo "I don't know your mode."
+
+fi
+```
+
  # Accepting User Input (STDIN)
 The read command accepts STDIN.
 
