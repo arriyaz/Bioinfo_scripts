@@ -151,7 +151,7 @@ Based on our chosen mode, the script will run different code.
 while getopts n:m: flag
 do
 case "${flag}" in 
-    n) name=${OPTARG};;
+	n) name=${OPTARG};;
 	m) mode=${OPTARG};;
 esac
 
