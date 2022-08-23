@@ -104,4 +104,44 @@ pip uninstall jupyterlab_theme_solarized_dark
 ```bash
 sudo snap install ksnip
 ```
+## Install Docker Desktop
+A. Go to the follwoing link and download the `.deb` package of **docker-desktop** for linux.
+[Docker Desktop for Linux](https://docs.docker.com/desktop/install/linux-install/)
 
+B. Setup docker repository so the **docker desktop** can install `docker-ce-cli`.  
+
+1. Update the apt package index and install packages to allow apt to use a repository over HTTPS:
+``bash
+ sudo apt-get update
+ 
+ sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+```
+2. Add Docker’s official GPG key:
+```bash
+sudo mkdir -p /etc/apt/keyrings
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+3. Use the following command to set up the repository:
+```bash
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  ```
+ 4. Now update the repository
+ ```bash
+ sudo apt-get update
+ ```
+ 
+**NB: **
+-  Codes for repository setting was adapted from [docker engine documentation page](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+-  Necessity for setting up docker engine repository is explained in this [stackoverflow question](https://stackoverflow.com/questions/72299444/docker-desktop-doesnt-install-saying-docker-ce-cli-not-installable)
+
+C. Now install the dokcer desktop `.deb` package
+```bash
+sudo apt-get install ./docker-desktop-<version>-<arch>.deb
+```
