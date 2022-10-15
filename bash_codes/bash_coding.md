@@ -61,7 +61,7 @@ The later one (with curly braces) is useful we want to use this variable with ot
 
 - To assign the output of a command to a variable:
 ```bash
-VARIABLE_NAME=$(command)\
+VARIABLE_NAME=$(command)
 ```
 
 
