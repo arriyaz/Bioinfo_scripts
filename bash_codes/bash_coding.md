@@ -222,6 +222,7 @@ rm -rf MyDir; mkdir MyDir
 
 # Same as
 rm -rf MyDir
+mkdir MyDir
 ```
 **Code Explanation:** Here,
 
