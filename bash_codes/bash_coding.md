@@ -207,7 +207,7 @@ echo "$status"
 
 ## && and ||
 - && = AND
-	- e.g.; `mkdir /tmp/bak $$ cp test.txt /tmp/bak/`
+	- e.g.; `mkdir /tmp/bak && cp test.txt /tmp/bak/`
 	- The command followed by double ampercend (&&) will work only if the previous command execute successfully
 - || = OR
 	- e.g.; `cp test.txt /tmp/bak/ || test.txt /tmp `
