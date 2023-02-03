@@ -171,6 +171,15 @@ else [ "$mode" != 'happy' ] || [ "$mode" != 'sad' ]
 
 fi
 ```
+## Usage example
+```bash
+script.sh -n John -m happy
+```
+**Output**
+```
+Hi! John, you're in happy mode.
+```
+
 
  # Accepting User Input (STDIN)
 The read command accepts STDIN.
