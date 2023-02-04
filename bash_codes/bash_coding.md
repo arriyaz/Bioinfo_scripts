@@ -412,7 +412,7 @@ In the case of `wildcard` there is another concept called `globbing`.
 - **Globbing** expands the wildcard pattern into a list of files and/or directories (PATHS).
 
 Most commonly used wild cards:
-- `*`- matches zeor or more character
+- `*`- matches zero or more character
 	- *.txt
 	- a*
 -  `?`- matches exactly one character
