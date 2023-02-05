@@ -452,7 +452,7 @@ Most commonly used wild cards:
 	- Matches all files that start with `a, b, c, d, e, f, or g`.
 
 - `[3-6]*`
-	- Matches all files that start with `3, 4, 6, or 6`.
+	- Matches all files that start with `3, 4, 5, or 6`.
 
 ### Named Character Classes
 Instead of creating our own ranges we can use predefined named character classes.  
