@@ -853,7 +853,7 @@ do
 done
 ```
 **Code explanation**: Here, we loop through a list of **mysq** database.
-- `-B` to desable ASCII table output, that mysql normaly displays.
+- `-B` to disable ASCII table output, that mysql normaly displays.
 - `-N` suppresses the column name in the output. This prevents the header from displayed.
 - `-e` will execute the command that followed it.
 - Altogether this **mysql** command will show a list of database.
