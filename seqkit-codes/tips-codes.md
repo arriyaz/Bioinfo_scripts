@@ -14,7 +14,7 @@ seqkit split --by-id file_name
 ## change the widtch of fasta file;
 `-w, --line-width int`
 line width when outputing FASTA format (0 for no wrap) (default 60)
-# to make 2 line fasta;
+### to make 2 line fasta;
 ```bash
 seqkit seq -w 0
 ```
