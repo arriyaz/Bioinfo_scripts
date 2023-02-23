@@ -516,14 +516,14 @@ done
 The ln command is used to create either hard or symbolic links. It is used in one of two ways.  
 The following creates a hard link:
 ```
-ln file link
+ln source/file dest/file-link
 ```
 The following creates a symbolic link:
 ```
-ln -s item link
+ln source/file dest/file-link
 ```
 where item is either a file or a directory.
--  With GNOME, holding the ctrl+shift keys while dragging a file will create a link rather than copying (or moving) the file.
+-  >> With GNOME, holding the `ctrl+shift` keys while dragging a file will create a link rather than copying (or moving) the file.
 
 
 **Soft Links:** In Linux, a soft link, also known as a symbolic link, is a special sort of file that points at a different file. In Windows vocabulary, you could think of it like a shortcut. Because the connection is a logical one, and not a duplication, soft links can point at entire directories or link to files on remote computers. Hard links cannot do this.
