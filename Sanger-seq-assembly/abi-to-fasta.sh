@@ -19,21 +19,11 @@ then
     exit
 fi
 
-# Check if you have cowsay tool installed
-if ! command -v cowsay &> /dev/null
-then
-	echo
-    echo "	You don't have 'cowsay' tool installed"
-    echo "	I'm going to install cowsay"
-	sudo apt install cowsay
-    echo
-
-fi
 
 read -r -e -p "Please insert the directory name that contain the abi/ab1 sequences: " ABI_dir
 read -r -e -p "Please provide a output directory: " OUT_dir
 
-rm -Rf $OUT_dir && mkdir ${OUT_dir}
+rm -Rf $OUT_dir && mkdir ${OUT_dir} ${OUT_dir}_temp
 
 ABI_file=$(ls -1 ${ABI_dir}/ | sort | grep .ab[1i])
 
@@ -48,11 +38,23 @@ seqret \
     -osformat2 fasta \
     -auto \
     -stdout \
-    -outseq ${OUT_dir}/${NAME}.fa
+    -outseq ${OUT_dir}_temp/${NAME}.fa
+    
 
+# Input FASTA file
+input_file=${OUT_dir}_temp/${NAME}.fa
+
+
+# Extract filename without extension
+filename=$(basename "$input_file")
+filename="${filename%.*}"
+
+# Replace the header with the filename
+seqkit replace -p "(.+)" -r "${filename}" "${input_file}" > ${OUT_dir}/${NAME}.fa
+
+# Remove temp file
+rm -rf ${OUT_dir}_temp/${NAME}.fa
 
 done
 
 echo 
-
-
