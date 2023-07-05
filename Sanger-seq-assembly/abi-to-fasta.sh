@@ -57,4 +57,7 @@ rm -rf ${OUT_dir}_temp/${NAME}.fa
 
 done
 
+# Remove the temp directory
+rm -rf ${OUT_dir}_temp
+
 echo 
