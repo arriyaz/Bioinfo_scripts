@@ -71,7 +71,7 @@ sudo apt-get install pinta
 ```
 
 ## Install **JupyterLab**
-Download **Jupyterlab** deb file from the following link:  
+Download **Jupyterlab** deb file from the following link and install it in your ubuntu system.
 - [Jupyterlab for Ubuntu](https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian-x64.deb)
 
 ### Set Python Environment in JupyterLab
