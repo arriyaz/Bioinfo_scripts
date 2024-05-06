@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Function to remove line breaks and paragraph breaks from text
+remove_line_breaks() {
+    local cleaned_text
+    # Remove line breaks and paragraph breaks using sed
+    cleaned_text=$(echo "$1" | sed ':a;N;$!ba;s/\n/ /g')
+    cleaned_text=$(echo "$cleaned_text" | sed 's/\r/ /g')
+    # remove "(author date)" style citation from copied text
+    cleaned_text=$(echo "$cleaned_text" | sed -E 's/ \([^)]* [1-2][0-9]{3}\)//g')
+    echo "$cleaned_text"
+}
+
+# Monitor clipboard for changes
+previous_clipboard_content=""
+while true; do
+    current_clipboard_content=$(xclip -o -selection clipboard)
+    if [ "$current_clipboard_content" != "$previous_clipboard_content" ]; then
+        cleaned_text=$(remove_line_breaks "$current_clipboard_content")
+        echo -n "$cleaned_text" | xclip -selection clipboard
+        previous_clipboard_content="$cleaned_text"
+    fi
+    sleep 1  # Check clipboard every second
+done
