@@ -1,4 +1,4 @@
-#! /bin/bash 
+#!/bin/bash
 
-# clean everything in the temp directory older than 30 days find
-$HOME/temp/* -mtime +30 -exec rm -rf {} \;
+# Clean everything in the temp directory older than 30 days
+find "$HOME/temp" -mindepth 1 -mtime +30 -depth -exec rm -rf {} \;
